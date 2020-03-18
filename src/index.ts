@@ -1,6 +1,6 @@
-import PiggyClient from './bot';
+import MonitorClient from './bot';
 
-new PiggyClient({
+new MonitorClient({
 	token: process.env.TOKEN!,
 	owner: process.env.OWNERS!.split(','),
 	color: process.env.COLOR!,

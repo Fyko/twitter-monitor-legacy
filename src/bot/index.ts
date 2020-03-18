@@ -1,3 +1,3 @@
-import PiggyClient from './client/MonitorClient';
+import MonitorClient from './client/MonitorClient';
 
-export default PiggyClient;
+export default MonitorClient;
