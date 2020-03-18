@@ -1,0 +1,94 @@
+{
+    "name": "twitter-monitor-legacy",
+    "version": "1.0.0",
+    "description": "Sycer Development's legacy Twitter monitor",
+    "main": "dist/index.js",
+    "author": "Carter Himmel <me@fyko.net>",
+    "license": "Apache-2.0",
+    "scripts": {
+        "build": "pnpm run cleardir && pnpm run compile",
+        "cleardir": "rimraf dist/*",
+        "compile": "tsc",
+        "lint": "eslint src --ext .ts",
+        "lint:fix": "eslint src --fix --ext .ts",
+        "prestart": "pnpm run build",
+        "start": "node ."
+    },
+    "dependencies": {
+        "common-tags": "^1.8.0",
+        "discord-akairo": "github:discord-akairo/discord-akairo",
+        "discord.js": "github:discordjs/discord.js",
+        "mongoose": "^5.9.4",
+        "tesseract.ts": "^1.1.2",
+        "twit": "^2.2.11",
+        "winston": "^3.2.1"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^8.3.5",
+        "@commitlint/config-angular": "^8.3.4",
+        "@types/common-tags": "^1.8.0",
+        "@types/mongoose": "^5.7.6",
+        "@types/node": "^13.9.1",
+        "@types/twit": "^2.2.23",
+        "@types/ws": "^7.2.2",
+        "@typescript-eslint/eslint-plugin": "^2.23.0",
+        "@typescript-eslint/parser": "^2.23.0",
+        "eslint": "^6.8.0",
+        "eslint-config-marine": "^6.0.0",
+        "eslint-config-prettier": "^6.10.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "husky": "^4.2.3",
+        "prettier": "^1.19.1",
+        "rimraf": "^3.0.2",
+        "tslib": "^1.11.1",
+        "typescript": "^3.8.3",
+        "winston": "^3.2.1"
+    },
+    "peerDependencies": {
+        "tesseract.js": "^2.0.2"
+    },
+    "optionalDependencies": {
+        "bufferutil": "^4.0.1",
+        "erlpack": "github:discordapp/erlpack",
+        "utf-8-validate": "^5.0.2",
+        "zlib-sync": "^0.1.6"
+    },
+    "eslintConfig": {
+        "extends": "marine/prettier/node",
+        "rules": {
+            "comma-dangle": [
+                "error",
+                "always-multiline"
+            ]
+        }
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    },
+    "commitlint": {
+        "extends": [
+            "@commitlint/config-angular"
+        ],
+        "rules": {
+            "type-enum": [
+                2,
+                "always",
+                [
+                    "chore",
+                    "build",
+                    "ci",
+                    "docs",
+                    "feat",
+                    "fix",
+                    "perf",
+                    "refactor",
+                    "revert",
+                    "style",
+                    "test"
+                ]
+            ]
+        }
+    }
+}
